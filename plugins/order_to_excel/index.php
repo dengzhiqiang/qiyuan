@@ -1,0 +1,154 @@
+<?php
+/**
+ * ECSHOP 导出会员与订单插件
+ * ============================================================================
+ * 作者:  ECSHOP交易中心（http://www.7mn.net） 
+ * 网站: （http://www.7mn.net
+*/
+define('IN_ECS', true);
+require(dirname(__FILE__) . '/../../includes/init.php');
+include_once(ROOT_PATH . 'languages/' .$GLOBALS['_CFG']['lang']. '/admin/order.php');
+include_once(ROOT_PATH . 'includes/lib_order.php');
+
+// 差八个小时的解决方法
+date_default_timezone_set("Asia/Shanghai");
+
+$orderListStartTime = trim($_GET['orderListStartTime']);
+$orderListEndTime = trim($_GET['orderListEndTime']);
+$status = -1; // -1代表的是请选择 也就是全部的订单
+
+if (!empty($orderListStartTime)){
+    $where .= " AND o.add_time >= " . strtotime($orderListStartTime);
+}
+
+if (!empty($orderListEndTime)){
+    $where .= " AND o.add_time <= " . strtotime($orderListEndTime);
+}
+
+switch($status)
+{
+	case CS_AWAIT_PAY :
+		$where .= order_query_sql('await_pay','o.');
+		break;
+
+	case CS_AWAIT_SHIP :
+		$where .= order_query_sql('await_ship','o.');
+		break;
+
+	case CS_FINISHED :
+		$where .= order_query_sql('finished','o.');
+		break;
+
+	case PS_PAYING :
+		if ($status != -1)
+		{
+			$where .= " AND o.pay_status = '$status' ";
+		}
+		break;
+
+	default:
+		if ($status != -1)
+		{
+			$where .= " AND o.order_status = '$status' ";
+		}
+}
+
+$sql = "SELECT o.*, ( o.goods_amount + o.tax + o.shipping_fee + o.insure_fee + o.pay_fee + o.pack_fee + o.card_fee ) AS total_fee, ".
+		"ra.region_name AS country_name, ".
+		"rb.region_name AS province_name, ".
+		"rc.region_name AS city_name, ".
+		"rd.region_name AS district_name ".
+
+		"  , pay_log.log_id AS log_id  " .
+		"  , order_goods.goods_name AS goods_name  " .
+
+		"FROM " .$GLOBALS['ecs']->table('order_info'). " AS o ".
+		"LEFT JOIN " .$GLOBALS['ecs']->table('region'). " AS ra ON ra.region_id=o.country ".
+		"LEFT JOIN " .$GLOBALS['ecs']->table('region'). " AS rb ON rb.region_id=o.province ".
+		"LEFT JOIN " .$GLOBALS['ecs']->table('region'). " AS rc ON rc.region_id=o.city ".
+		"LEFT JOIN " .$GLOBALS['ecs']->table('region'). " AS rd ON rd.region_id=o.district ".
+
+		" LEFT JOIN  " . $GLOBALS['ecs']->table('pay_log') . " AS pay_log ON pay_log.order_id=o.order_id  ".
+		" LEFT JOIN  " . $GLOBALS['ecs']->table('order_goods') . " AS order_goods ON order_goods.order_id=o.order_id  ".
+
+		"WHERE 1 $where ORDER BY o.order_id DESC";
+		
+		
+		
+header("Content-type:application/vnd.ms-excel");
+header("Accept-Ranges:bytes");
+header("Content-Disposition:filename=".time().".xls");
+header("Pragma: no-cache");
+
+echo '
+	<html xmlns:o="urn:schemas-microsoft-com:office:office"
+	xmlns:x="urn:schemas-microsoft-com:office:excel"
+	xmlns="http://www.w3.org/TR/REC-html40">
+	<head>
+	<meta http-equiv="expires" content="Mon, 06 Jan 1999 00:00:01 GMT">
+	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+	<!--[if gte mso 9]><xml>
+	<x:ExcelWorkbook>
+	<x:ExcelWorksheets>
+	<x:ExcelWorksheet>
+	<x:Name></x:Name>
+	<x:WorksheetOptions>
+	<x:DisplayGridlines/>
+	</x:WorksheetOptions>
+	</x:ExcelWorksheet>
+	</x:ExcelWorksheets>
+	</x:ExcelWorkbook>
+	</xml><![endif]-->
+	</head>
+';
+
+echo '<table>';
+echo '<tr>';
+echo '<td>订单号</td>';
+echo '<td>活动名称</td>';
+echo '<td>下单时间</td>';
+echo '<td>收货人</td>';
+echo '<td>国家</td>';
+echo '<td>省</td>';
+echo '<td>市</td>';
+echo '<td>区</td>';
+echo '<td>地址</td>';
+echo '<td>邮政编码</td>';
+echo '<td>电话</td>';
+echo '<td>身份证</td>';
+echo '<td>Email</td>';
+echo '<td>总金额</td>';
+echo '<td>应付金额</td>';
+echo '<td>订单状态</td>';
+echo '<td>付款状态</td>';
+echo '<td>发货状态</td>';
+echo '</tr>';
+		
+$res = $GLOBALS['db']->query($sql);
+while ($row = $GLOBALS['db']->fetchRow($res))
+{
+	echo '<tr>';
+	echo "<td style='vnd.ms-excel.numberformat:@'>".$row[order_sn] . $row[log_id]."</td>";
+	echo "<td>".$row['goods_name']."</td>";
+	echo "<td>".date("Y-m-d H:i:s",$row['add_time'])."</td>";
+	echo "<td>$row[consignee]</td>";
+	echo "<td>$row[country_name]</td>";
+	echo "<td>$row[province_name]</td>";
+	echo "<td>$row[city_name]</td>";
+	echo "<td>$row[district_name]</td>";
+	echo "<td>$row[address]</td>";
+	echo "<td>$row[zipcode]</td>";
+	echo "<td>$row[tel] </td>";
+	echo "<td style='vnd.ms-excel.numberformat:@'>". ' ' ." $row[mobile] </td>";
+	echo "<td>$row[email]</td>";
+	echo "<td>$row[total_fee]</td>";
+	echo "<td>$row[order_amount]</td>";
+	echo "<td>".$_LANG['cs'][$row['order_status']]."</td>";
+	echo "<td>".$_LANG['ps'][$row['pay_status']]."</td>";
+	echo "<td>".$_LANG['ss'][$row['shipping_status']]."</td>";
+	echo '</tr>';
+}
+
+echo '</table>';
+
+

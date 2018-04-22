@@ -1,0 +1,85 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="/themes/xiaomi/lrtk.css" rel="stylesheet" type="text/css" />
+{insert_scripts files='jquery-1.9.1.min.js,jquery.json.js'}
+{insert_scripts files='transport_jquery.js,utils.js,jquery.SuperSlide.js,xiaomi_common.js'}
+<script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+<div class="site-topbar">
+	<div class="container">
+        <div class="site-left-info" style="float:left;">北京棋院培训中心活动报名系统!!</div>
+        <div class="topbar-cart" id="ECS_CARTINFO">
+            {insert name='cart_info'}
+        </div>
+        <div class="topbar-info J_userInfo" id="ECS_MEMBERZONE">
+        	{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}
+        </div>
+    </div>
+</div>
+
+
+
+<div class="site-header" style="clear:both;">
+	<div class="container">
+    	<div class="header-logo">
+        	<a href="index.php" title="{$shop_name}"><img src="../images/logo.gif" /></a>
+        </div>
+
+        <!-- 网站静态化修改2017-11-06导航-->
+        <div class="header-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="link" href="category.php?id=83"><span>围棋</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="link" href="category.php?id=81"><span>象棋</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="link" href="category.php?id=87"><span>国际象棋</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="link" href="article_cat.php?id=5"><span>注册及报名流程</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="link" href="article_cat.php?id=8"><span>通知通告</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- // 网站静态化修改2017-11-06导航-->
+
+
+        <div class="header-search">
+        	<form action="search.php" method="get" id="searchForm" name="searchForm" onSubmit="return checkSearchForm()" class="search-form clearfix">
+            	<label class="hide">站内搜索</label>
+        		<input class="search-text" type="text" name="keywords" id="keyword" value="{$search_keywords|escape}" autocomplete="off">
+        		<input type="hidden" value="k1" name="dataBi">
+        		<button type="submit" class="search-btn iconfont"></button>
+                {if $searchkeywords}
+                <div class="hot-words" {if $search_keywords}style="display:none"{/if}>
+                	{foreach from=$searchkeywords item=val} <a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a> {/foreach}
+                </div>
+                {/if}
+      		</form>
+        </div>
+    </div>
+	<!--<div id="J_navMenu" class="header-nav-menu" style="display: none;">-->
+    	<!--<div class="container"></div>-->
+<!--sdfafa-->
+    <!--</div>-->
+</div>
+

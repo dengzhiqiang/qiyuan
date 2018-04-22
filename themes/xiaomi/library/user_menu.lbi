@@ -1,0 +1,58 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="slidebar">
+    <ul class="slide_item">
+
+        <li class="item">
+            <div class="root_node">用户中心</div>
+            <ul>
+                <li>
+                    <a class="{if $action eq 'order_list'|| $action eq 'order_detail'}on{/if}" href="user.php?act=order_list">{$lang.label_order}</a>
+
+                     <!--<a class="{if $action eq 'address_list'}on{/if}" href="user.php?act=address_list">用户信息</a>-->
+
+
+
+                </li>
+
+            </ul>
+        </li>
+
+        <li class="item">
+            <div class="root_node">会员中心</div>
+            <ul>
+                <li>
+                	<a class="{if $action eq 'default'}on{/if}" href="user.php">我的个人中心</a>
+
+                    <a class="{if $action eq 'profile'}on{/if}" href="user.php?act=profile">我的信息</a>
+
+
+
+
+                      <a class="{if $action eq 'message_list'}on{/if}" href="user.php?act=message_list">提交申请</a>
+
+
+                </li>
+
+            </ul>
+        </li>
+
+         <li class="item" style="display: none;">
+            <div class="root_node">账户中心</div>
+            <ul>
+                <li>
+
+
+                     <a class="{if $action eq 'account_log'}on{/if}" href="user.php?act=account_log">{$lang.label_user_surplus}</a>
+
+                </li>
+
+            </ul>
+        </li>
+
+    </ul>
+
+</div>
+
+
+

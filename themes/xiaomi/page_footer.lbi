@@ -1,0 +1,62 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="site-footer">
+	<div class="container">
+    	<div class="footer-service">
+        	<ul class="list-service clearfix">
+            	<li>
+                	<a rel="nofollow" href="javascript:void(0)">
+                    	<i class="iconfont">·</i>尊重裁判
+                    </a>
+                </li>
+            	<li>
+                	<a rel="nofollow" href="javascript:void(0)">
+                    	<i class="iconfont">·</i>尊重对手
+                    </a>
+                </li>
+            	<li>
+                	<a rel="nofollow" href="javascript:void(0)">
+                    	<i class="iconfont">·</i>勇于拼搏
+                    </a>
+                </li>
+            	<li>
+                	<a rel="nofollow" href="javascript:void(0)">
+                    	<i class="iconfont">·</i>公平竞争
+                    </a>
+                </li>
+            	<li>
+                	<a rel="nofollow" href="javascript:void(0)">
+                    	<i class="iconfont">·</i>友谊团结
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-links clearfix" >
+            <!-- {include file='library/help.lbi'} -->
+
+            <div class="site-info" style="float:left;width:900px;">
+            	<div class="container">
+                	<div class="logo ir">{$shop_name}</div>
+                    <div class="info-text">
+                        <img src="themes/xiaomi/images/erweima.png" alt="">
+                    </div>
+                    <!--<div class="info-text">-->
+                    	<!--<p class="site">-->
+                            <!--<a href="{$link.url}" target="_blank" title="{$link.name}">技术支持：京智科技</a>-->
+                            <!--<span class="sep">|</span>-->
+                        <!--</p>-->
+                        <!--<p>-->
+                        	<!--{$icp_number}-->
+                        <!--</p>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <div class="col-contact" style="padding-top: 28px;">
+                <p class="phone">{$service_phone}</p>
+                <p>咨询电话<br></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+

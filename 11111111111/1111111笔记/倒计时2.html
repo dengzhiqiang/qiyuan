@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div id="timer"></div>
+<script type="text/javascript">
+    var dengCountReduceTime = {
+        init: {
+            _orderTimer: null,
+            data: new Date(Date.parse(new Date()) + (8 * 1000))
+        },
+        leftTimer: function (enddate) {
+            var _this = this;
+            var leftTime = (new Date(enddate)) - new Date(); //计算剩余的毫秒数
+            var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
+            var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时21
+            var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+            var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+
+            days = _this.checkTime(days);
+            hours = _this.checkTime(hours);
+            minutes = _this.checkTime(minutes);
+            seconds = _this.checkTime(seconds);
+
+            if (days >= 0 || hours >= 0 || minutes >= 0 || seconds >= 0)
+                document.getElementById("timer").innerHTML = minutes + "分" + seconds + "秒";
+
+            if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
+                // 取消订单
+
+                console.log('取消订单');
+
+                window.clearInterval(_ordertimer);
+                _this._orderTimer = null;
+            }
+        },
+        checkTime: function (i) { //将0-9的数字前面加上0，例1变为01
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        },
+        go: function go() {
+            var _this = this;
+            var date1 = new Date(), data2 = new Date(_this.init.data);
+            if (data2 < date1) return;//设置的时间小于现在时间退出
+            _ordertimer = setInterval(function () {
+                _this.leftTimer(data2)
+            }, 1000);
+        }
+
+    };
+    dengCountReduceTime.go();
+</script>
+</body>
+</html>

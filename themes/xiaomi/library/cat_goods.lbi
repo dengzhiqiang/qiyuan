@@ -1,0 +1,85 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="home-brick-box home-brick-row-2-box xm-plain-box J_itemBox J_brickBox is-visible loaded" style="display: none;">
+	<!--分类活动头部-->
+	<div class="box-hd" style="height:68px;">
+        <h2 class="title">{$goods_cat.name}</h2>
+        <div class="more J_brickNav">
+            <a class="more-link" href="{$goods_cat.url}" style=" display:inline-block;">
+                查看全部<i class="iconfont"></i>
+            </a>
+            <ul class="tab-list J_brickTabSwitch">
+                <!--{foreach from=$goods_cat.goods_level2  item=goods_level2 name=goods_level2}-->
+                <!-- {if $smarty.foreach.goods_level2.iteration<5}-->
+            	<li>{$goods_level2.name}</li>
+                <!-- {/if} -->
+                <!--{/foreach}-->
+            </ul>
+        </div>
+    </div>
+    <!--分类活动主体-->
+    <div class="box-bd J_brickBd">
+    	<div class="row">
+        	<div class="span4 span-first">
+                <ul class="brick-promo-list clearfix">
+                  <!-- {if $goods_cat.sort_order eq 1}-->
+                    <li class="brick-item brick-item-l">
+
+                        <img src="/data/afficheimg/4234131111111114.jpg" alt="">
+                    </li>
+                  <!--{else}-->
+                    <li class="brick-item brick-item-m">
+                    {insert name='ads_pro' cat_name=$goods_cat.name type='分类下活动左侧广告小1'}
+                    </li>
+                    <li class="brick-item brick-item-m">
+                    {insert name='ads_pro' cat_name=$goods_cat.name type='分类下活动左侧广告小2'}
+                    </li>
+                  <!-- {/if} -->
+                </ul>
+
+            </div>
+
+            <div class="span16">
+
+            	<!--{foreach from=$goods_cat.goods_level2  item=goods_level2 name=goods_level2}-->
+                <!-- {if $smarty.foreach.goods_level2.iteration<5}-->
+            	<ul class="brick-list clearfix">
+                  <!--{foreach from=$goods_level2.goods item=goods name=goods}-->
+                  <!-- {if $smarty.foreach.goods.iteration<9}-->
+                  <li class="brick-item brick-item-m">
+                      <div class="figure figure-img">
+                          <a href="{$goods.url}">
+                              <img src="{$goods.goods_thumb}" width="160" height="160" alt="{$goods.name|escape:html}">
+                          </a>
+                      </div>
+                      <h3 class="title">
+                          <a href="{$goods.url}">{$goods.goods_name|escape:html}</a>
+                      </h3>
+                      <p class="desc">{$goods.goods_brief}</p>
+
+                       <!--登录后显示价格-->
+                        <p class="price">
+                            <!--{if $smarty.session.user_id >0 }-->
+                              <!-- {if $goods.promote_price neq ""} -->
+                              ''
+                              <!-- {else}-->
+                                {$goods.shop_price}
+                              <!--{/if}-->
+                            <!-- {else}-->
+                            登录后查看价格
+                            <!--{/if}-->
+                        </p>
+                        <!--// 登录后显示价格-->
+                      <p class="price">
+                      </p>
+
+
+                  </li>
+                  <!-- {/if} -->
+                  <!--{/foreach}-->
+                </ul>
+                <!-- {/if} -->
+                <!--{/foreach}-->
+            </div>
+        </div>
+    </div>
+</div>

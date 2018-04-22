@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files='transport_jquery.js,utils.js'}
+<div id="ECS_ORDERTOTAL" class="money-box">
+<ul>
+  <li class="clearfix total-price"> 
+      <label>{$lang.total_fee}：</label> <span class="val"><em>{$total.amount_formated}</em></span>
+      {if $is_group_buy}<br />
+      {$lang.notice_gb_order_amount}{/if}
+      <!--{if $total.exchange_integral }消耗积分--><br />
+        {$lang.notice_eg_integral}<font class="f4_b">{$total.exchange_integral}</font>
+        <!--{/if}-->
+	</li>
+</ul>
+</div>
