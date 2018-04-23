@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:7:{i:0;s:45:"E:/git/baoming/qiyuan/themes/xiaomi/index.dwt";i:1;s:59:"E:/git/baoming/qiyuan/themes/xiaomi/library/page_header.lbi";i:2;s:56:"E:/git/baoming/qiyuan/themes/xiaomi/library/index_ad.lbi";i:3;s:62:"E:/git/baoming/qiyuan/themes/xiaomi/library/recommend_best.lbi";i:4;s:57:"E:/git/baoming/qiyuan/themes/xiaomi/library/cat_goods.lbi";i:5;s:59:"E:/git/baoming/qiyuan/themes/xiaomi/library/page_footer.lbi";i:6;s:52:"E:/git/baoming/qiyuan/themes/xiaomi/library/help.lbi";}s:7:"expires";i:1524498127;s:8:"maketime";i:1524494527;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:7:{i:0;s:45:"E:/git/baoming/qiyuan/themes/xiaomi/index.dwt";i:1;s:59:"E:/git/baoming/qiyuan/themes/xiaomi/library/page_header.lbi";i:2;s:56:"E:/git/baoming/qiyuan/themes/xiaomi/library/index_ad.lbi";i:3;s:62:"E:/git/baoming/qiyuan/themes/xiaomi/library/recommend_best.lbi";i:4;s:57:"E:/git/baoming/qiyuan/themes/xiaomi/library/cat_goods.lbi";i:5;s:59:"E:/git/baoming/qiyuan/themes/xiaomi/library/page_footer.lbi";i:6;s:52:"E:/git/baoming/qiyuan/themes/xiaomi/library/help.lbi";}s:7:"expires";i:1524498146;s:8:"maketime";i:1524494546;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="ECSHOP v2.7.3" />
@@ -81,7 +81,8 @@
 	<!--<div id="J_navMenu" class="header-nav-menu" style="display: none;">-->
     	<!--<div class="container"></div>-->
     <!--</div>-->
-</div><script type="text/javascript" src="js/xiaomi_index.js"></script>
+</div>
+<script type="text/javascript" src="js/xiaomi_index.js"></script>
 <div class="home-hero-container container">
 	<div class="home-hero">
     	<div class="home-hero-slider">
@@ -119,12 +120,14 @@
             <a href="javascript:;" >3</a>
         </li>
             </ul>
-</div>			
+</div>
+			
         </div>
     </div>
     
     <div class="home-star-goods xm-carousel-container">
     	
+ 
 <div class="home-brick-box home-brick-row-2-box xm-plain-box J_itemBox J_brickBox is-visible loaded" style="display: none;">
 	
 	<div class="box-hd" style="height:68px;">
@@ -165,8 +168,7 @@
                       <p class="desc"></p>
                        
                         <p class="price">
-                                                        登录后查看价格
-                                                    </p>
+                                                                                          200.00<em>元</em>                                                                                  </p>
                         
                       <p class="price">
                       </p>
@@ -238,6 +240,7 @@ $(document).ready(function(){
         </div>
         <div class="footer-links clearfix" >
             <div class="blank"></div>
+ 
             <div class="site-info" style="float:left;width:900px;">
             	<div class="container">
                 	<div class="logo ir">北京棋院培训中心活动报名系统</div>
