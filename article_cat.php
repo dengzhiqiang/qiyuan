@@ -157,4 +157,3 @@ $smarty->assign('feed_url',         ($_CFG['rewrite'] == 1) ? "feed-typearticle_
 
 $smarty->display('article_cat.dwt', $cache_id);
 
-?>

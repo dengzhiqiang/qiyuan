@@ -15,19 +15,19 @@
     <div class="box-bd">
     	<div class="xm-carousel-wrapper J_carouselWrap">
         	<ul class="xm-carousel-list xm-carousel-col-5-list goods-list rainbow-list clearfix J_carouselList">
-            	<?php $_from = $this->_var['hot_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_51757800_1524494928');$this->_foreach['hot_goods'] = array('total' => count($_from), 'iteration' => 0);
+            	<?php $_from = $this->_var['hot_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');$this->_foreach['hot_goods'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['hot_goods']['total'] > 0):
-    foreach ($_from AS $this->_var['goods_0_51757800_1524494928']):
+    foreach ($_from AS $this->_var['goods']):
         $this->_foreach['hot_goods']['iteration']++;
 ?>
                 	<li>
-                    	<a class="thumb" href="<?php echo $this->_var['goods_0_51757800_1524494928']['url']; ?>" target="_blank">
-                        	<img src="<?php echo $this->_var['goods_0_51757800_1524494928']['thumb']; ?>" />
+                    	<a class="thumb" href="<?php echo $this->_var['goods']['url']; ?>" target="_blank">
+                        	<img src="<?php echo $this->_var['goods']['thumb']; ?>" />
                         </a>
                         <h3 class="title">
-                        	<a href="<?php echo $this->_var['goods_0_51757800_1524494928']['url']; ?>" target="_blank"><?php echo $this->_var['goods_0_51757800_1524494928']['short_style_name']; ?></a>
+                        	<a href="<?php echo $this->_var['goods']['url']; ?>" target="_blank"><?php echo $this->_var['goods']['short_style_name']; ?></a>
                         </h3>
-                        <p class="price"><?php if ($this->_var['goods_0_51757800_1524494928']['promote_price'] != ""): ?><?php echo $this->_var['goods_0_51757800_1524494928']['promote_price']; ?><?php else: ?><?php echo $this->_var['goods_0_51757800_1524494928']['shop_price']; ?><?php endif; ?></p>
+                        <p class="price"><?php if ($this->_var['goods']['promote_price'] != ""): ?><?php echo $this->_var['goods']['promote_price']; ?><?php else: ?><?php echo $this->_var['goods']['shop_price']; ?><?php endif; ?></p>
                     </li>
                 <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
             </ul>
@@ -42,16 +42,16 @@ if ($this->_foreach['hot_goods']['total'] > 0):
         <div class="xm-recommend">
             <div class="xm-carousel-wrapper">
                 <ul class="xm-carousel-col-5-list xm-carousel-list clearfix">
-                	<?php $_from = $this->_var['hot_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_51757800_1524494928');$this->_foreach['hot_goods'] = array('total' => count($_from), 'iteration' => 0);
+                	<?php $_from = $this->_var['hot_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');$this->_foreach['hot_goods'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['hot_goods']['total'] > 0):
-    foreach ($_from AS $this->_var['goods_0_51757800_1524494928']):
+    foreach ($_from AS $this->_var['goods']):
         $this->_foreach['hot_goods']['iteration']++;
 ?>
                     <li class="J_xm-recommend-list">
                         <dl>
-                            <dt><a href="<?php echo $this->_var['goods_0_51757800_1524494928']['url']; ?>" target="_blank"><img src="<?php echo $this->_var['goods_0_51757800_1524494928']['thumb']; ?>" /></a></dt>
-                            <dd class="xm-recommend-name"><a href="<?php echo $this->_var['goods_0_51757800_1524494928']['url']; ?>" target="_blank" title="<?php echo $this->_var['goods_0_51757800_1524494928']['short_style_name']; ?>"><?php echo $this->_var['goods_0_51757800_1524494928']['short_style_name']; ?></a></dd>
-                            <dd class="xm-recommend-price"><?php if ($this->_var['goods_0_51757800_1524494928']['promote_price'] != ""): ?><?php echo $this->_var['goods_0_51757800_1524494928']['promote_price']; ?><?php else: ?><?php echo $this->_var['goods_0_51757800_1524494928']['shop_price']; ?><?php endif; ?></dd>
+                            <dt><a href="<?php echo $this->_var['goods']['url']; ?>" target="_blank"><img src="<?php echo $this->_var['goods']['thumb']; ?>" /></a></dt>
+                            <dd class="xm-recommend-name"><a href="<?php echo $this->_var['goods']['url']; ?>" target="_blank" title="<?php echo $this->_var['goods']['short_style_name']; ?>"><?php echo $this->_var['goods']['short_style_name']; ?></a></dd>
+                            <dd class="xm-recommend-price"><?php if ($this->_var['goods']['promote_price'] != ""): ?><?php echo $this->_var['goods']['promote_price']; ?><?php else: ?><?php echo $this->_var['goods']['shop_price']; ?><?php endif; ?></dd>
                             <dd class="xm-recommend-tips"> </dd>
                         </dl>
                     </li>
@@ -61,9 +61,9 @@ if ($this->_foreach['hot_goods']['total'] > 0):
             </div>
             <div class="xm-pagers-wrapper">
                 <ul class="xm-pagers">
-                	<?php $_from = $this->_var['hot_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_51757800_1524494928');$this->_foreach['hot_goods'] = array('total' => count($_from), 'iteration' => 0);
+                	<?php $_from = $this->_var['hot_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');$this->_foreach['hot_goods'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['hot_goods']['total'] > 0):
-    foreach ($_from AS $this->_var['goods_0_51757800_1524494928']):
+    foreach ($_from AS $this->_var['goods']):
         $this->_foreach['hot_goods']['iteration']++;
 ?>
                     <?php if (($this->_foreach['hot_goods']['iteration'] - 1) % 5 == 0): ?>

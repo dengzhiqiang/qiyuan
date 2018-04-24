@@ -8,7 +8,7 @@ if (!defined('IN_ECS')) {
  * memcache类
   */
 
-class Memcacheds
+class cls_memcache
 {
     //声明静态成员变量
     public $m = null;

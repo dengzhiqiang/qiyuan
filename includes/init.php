@@ -94,11 +94,18 @@ $ecs = new ECS($db_name, $prefix);
 define('DATA_DIR', $ecs->data_dir());
 define('IMAGE_DIR', $ecs->image_dir());
 
+/* 创建memcache对象 */
+require(ROOT_PATH . 'includes/cls_memcache.php');
+$memcache = new cls_memcache();
+
+
 /* 初始化数据库类 */
 require(ROOT_PATH . 'includes/cls_mysql.php');
 $db = new cls_mysql($db_host, $db_user, $db_pass, $db_name);
 $db->set_disable_cache_tables(array($ecs->table('sessions'), $ecs->table('sessions_data'), $ecs->table('cart')));
 $db_host = $db_user = $db_pass = $db_name = NULL;
+
+
 
 /* 创建错误处理对象 */
 $err = new ecs_error('message.dwt');
@@ -145,11 +152,11 @@ if (!defined('INIT_NO_USERS')) {
      * 只能要一个用户登录
      */
     if ($_SESSION['user_id'] > 0) {
-        $sessionSqlDeng = "select expiry from  " . $ecs->table('sessions') . "  where userid = " . $_SESSION['user_id'] . ' order by expiry desc limit 1';
-        $userAllSession = $db->getOne($sessionSqlDeng);
-
-        $deleteSessionDeng = "delete from " . $ecs->table('sessions') . "  where expiry < '{$userAllSession}' and userid = "  . $_SESSION['user_id'];
-        $db->query($deleteSessionDeng);
+//        $sessionSqlDeng = "select expiry from  " . $ecs->table('sessions') . "  where userid = " . $_SESSION['user_id'] . ' order by expiry desc limit 1';
+//        $userAllSession = $db->getOne($sessionSqlDeng);
+//
+//        $deleteSessionDeng = "delete from " . $ecs->table('sessions') . "  where expiry < '{$userAllSession}' and userid = "  . $_SESSION['user_id'];
+//        $db->query($deleteSessionDeng);
     }
 
 

@@ -1,13 +1,13 @@
 <?php if ($this->_var['brands']['1'] || $this->_var['price_grade']['1'] || $this->_var['filter_attr_list']): ?>
 <div class="container" style="display:none;">
 	<div class="filter-box">
-    	<?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_48730400_1524494928');if (count($_from)):
-    foreach ($_from AS $this->_var['filter_attr_0_48730400_1524494928']):
+    	<?php $_from = $this->_var['filter_attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'filter_attr_0_42775200_1524542641');if (count($_from)):
+    foreach ($_from AS $this->_var['filter_attr_0_42775200_1524542641']):
 ?>
     	<div class="filter-list-wrap">
         	<dl class="filter-list clearfix filter-list-row-2">
-            	<dt><?php echo htmlspecialchars($this->_var['filter_attr_0_48730400_1524494928']['filter_attr_name']); ?>：</dt>
-                <?php $_from = $this->_var['filter_attr_0_48730400_1524494928']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
+            	<dt><?php echo htmlspecialchars($this->_var['filter_attr_0_42775200_1524542641']['filter_attr_name']); ?>：</dt>
+                <?php $_from = $this->_var['filter_attr_0_42775200_1524542641']['attr_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'attr');if (count($_from)):
     foreach ($_from AS $this->_var['attr']):
 ?>
                 <?php if ($this->_var['attr']['selected']): ?>

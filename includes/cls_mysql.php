@@ -296,6 +296,12 @@ class cls_mysql
             }
         }
 
+        /*保存所有所有执行过的sql语句*/
+        $dengzhiqiangsql = '[' . date('y-m-d h:i:s',time()) . '] ' . $sql . PHP_EOL;
+        file_put_contents(__DIR__ . '/../dengzhiqiangmysql.txt',$dengzhiqiangsql,FILE_APPEND);
+
+        /* // 保存所有所有执行过的sql语句*/
+
         return $query;
     }
 
@@ -914,5 +920,3 @@ class cls_mysql
         array_unique($this->mysql_disable_cache_tables);
     }
 }
-
-?>

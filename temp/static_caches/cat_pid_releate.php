@@ -24,7 +24,7 @@ $data = array (
     'grade' => '0',
     'sort_order' => '2',
     'has_children' => '0',
-    'goods_num' => '1',
+    'goods_num' => 0,
   ),
   2 => 
   array (

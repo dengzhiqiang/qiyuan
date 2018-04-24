@@ -555,6 +555,8 @@ function insert_comments($arr)
     $cmt = assign_comment($arr['id'],          $arr['type']);
     $GLOBALS['smarty']->assign('comments',     $cmt['comments']);
     $GLOBALS['smarty']->assign('pager',        $cmt['pager']);
+
+    /*下面这个是获取商品的评分的*/
 	$comment_percent = comment_percent($arr['id']);
 	$GLOBALS['smarty']->assign('comment_percent',         $comment_percent); 
 	

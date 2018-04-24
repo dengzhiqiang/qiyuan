@@ -1,0 +1,99 @@
+[18-04-24 04:05:01] SELECT c.cat_id, c.cat_name, c.measure_unit, c.parent_id, c.is_show, c.show_in_nav, c.grade, c.sort_order, COUNT(s.cat_id) AS has_children FROM `baoming`.`ecs_category` AS c LEFT JOIN `baoming`.`ecs_category` AS s ON s.parent_id=c.cat_id GROUP BY c.cat_id ORDER BY c.parent_id, c.sort_order ASC
+[18-04-24 04:05:01] SELECT cat_id, COUNT(*) AS goods_num  FROM `baoming`.`ecs_goods` WHERE is_delete = 0 AND is_on_sale = 1  GROUP BY cat_id
+[18-04-24 04:05:01] SELECT gc.cat_id, COUNT(*) AS goods_num  FROM `baoming`.`ecs_goods_cat` AS gc , `baoming`.`ecs_goods` AS g  WHERE g.goods_id = gc.goods_id AND g.is_delete = 0 AND g.is_on_sale = 1  GROUP BY gc.cat_id
+[18-04-24 04:05:01] SELECT * FROM `baoming`.`ecs_nav`
+            WHERE ifshow = '1' ORDER BY type, vieworder
+[18-04-24 04:05:01] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '83'
+[18-04-24 04:05:01] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '83' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:01] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='83' ORDER BY sort_order  
+[18-04-24 04:05:01] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '81'
+[18-04-24 04:05:01] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '81' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:01] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='81' ORDER BY sort_order  
+[18-04-24 04:05:01] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '87'
+[18-04-24 04:05:01] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '87' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:01] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='87' ORDER BY sort_order  
+[18-04-24 04:05:01] SELECT c.*, COUNT(s.cat_id) AS has_children, COUNT(a.article_id) AS aricle_num  FROM `baoming`.`ecs_article_cat` AS c LEFT JOIN `baoming`.`ecs_article_cat` AS s ON s.parent_id=c.cat_id LEFT JOIN `baoming`.`ecs_article` AS a ON a.cat_id=c.cat_id GROUP BY c.cat_id  ORDER BY parent_id, sort_order ASC
+[18-04-24 04:05:01] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('5')  ORDER BY article_type DESC, article_id DESC LIMIT 6
+[18-04-24 04:05:01] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('8')  ORDER BY article_type DESC, article_id DESC LIMIT 6
+[18-04-24 04:05:01] SELECT cat_id, cat_name, parent_id FROM `baoming`.`ecs_article_cat`
+[18-04-24 04:05:01] SELECT keywords, cat_desc FROM `baoming`.`ecs_article_cat` WHERE cat_id = '5'
+[18-04-24 04:05:01] SELECT COUNT(*) FROM `baoming`.`ecs_article` WHERE cat_id IN ('5')  AND is_open = 1
+[18-04-24 04:05:01] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('5')  ORDER BY article_type DESC, article_id DESC LIMIT 10
+[18-04-24 04:05:01] SELECT id, number, type FROM `baoming`.`ecs_template` WHERE filename = 'article_cat' AND type > 0 AND remarks ='' AND theme='xiaomi'
+[18-04-24 04:05:01] SELECT region, library, sort_order, id, number, type FROM `baoming`.`ecs_template` WHERE theme = 'xiaomi' AND filename = 'article_cat' AND type > 0 AND remarks='' ORDER BY region, library, sort_order
+[18-04-24 04:05:01] SELECT SUM(goods_number) AS number, SUM(goods_price * goods_number) AS amount FROM `baoming`.`ecs_cart` WHERE session_id = 'c9749f0fb6bc06ebbfdb403d52fdd2ce' AND rec_type = '0'
+[18-04-24 04:05:01] SELECT c.rec_id,c.goods_id,c.goods_price,c.goods_number,c.goods_name,c.goods_attr,g.goods_thumb  FROM `baoming`.`ecs_cart` AS c  LEFT JOIN `baoming`.`ecs_goods` AS g ON c.goods_id = g.goods_id  WHERE session_id = 'c9749f0fb6bc06ebbfdb403d52fdd2ce' AND rec_type = '0'
+[18-04-24 04:05:01] SELECT u.user_id, u.email,u.user_rank, u.rank_points, u.user_name, u.user_money, u.pay_points FROM `baoming`.`ecs_users` AS u  WHERE u.user_id = '3703'
+[18-04-24 04:05:01] SELECT SUM(bt.type_money) AS bonus_value, COUNT(*) AS bonus_count FROM `baoming`.`ecs_user_bonus` AS ub, `baoming`.`ecs_bonus_type` AS bt WHERE ub.user_id = '3703' AND ub.bonus_type_id = bt.type_id AND ub.order_id = 0
+========================
+========================
+========================
+========================
+
+[18-04-24 04:05:15] SELECT code, value FROM `baoming`.`ecs_shop_config` WHERE parent_id > 0
+[18-04-24 04:05:15] SELECT c.cat_id, c.cat_name, c.measure_unit, c.parent_id, c.is_show, c.show_in_nav, c.grade, c.sort_order, COUNT(s.cat_id) AS has_children FROM `baoming`.`ecs_category` AS c LEFT JOIN `baoming`.`ecs_category` AS s ON s.parent_id=c.cat_id GROUP BY c.cat_id ORDER BY c.parent_id, c.sort_order ASC
+[18-04-24 04:05:15] SELECT cat_id, COUNT(*) AS goods_num  FROM `baoming`.`ecs_goods` WHERE is_delete = 0 AND is_on_sale = 1  GROUP BY cat_id
+[18-04-24 04:05:15] SELECT gc.cat_id, COUNT(*) AS goods_num  FROM `baoming`.`ecs_goods_cat` AS gc , `baoming`.`ecs_goods` AS g  WHERE g.goods_id = gc.goods_id AND g.is_delete = 0 AND g.is_on_sale = 1  GROUP BY gc.cat_id
+[18-04-24 04:05:15] SELECT * FROM `baoming`.`ecs_nav`
+            WHERE ifshow = '1' ORDER BY type, vieworder
+[18-04-24 04:05:15] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '83'
+[18-04-24 04:05:15] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '83' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:15] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='83' ORDER BY sort_order  
+[18-04-24 04:05:15] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '81'
+[18-04-24 04:05:15] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '81' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:15] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='81' ORDER BY sort_order  
+[18-04-24 04:05:15] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '87'
+[18-04-24 04:05:15] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '87' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:15] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='87' ORDER BY sort_order  
+[18-04-24 04:05:15] SELECT c.*, COUNT(s.cat_id) AS has_children, COUNT(a.article_id) AS aricle_num  FROM `baoming`.`ecs_article_cat` AS c LEFT JOIN `baoming`.`ecs_article_cat` AS s ON s.parent_id=c.cat_id LEFT JOIN `baoming`.`ecs_article` AS a ON a.cat_id=c.cat_id GROUP BY c.cat_id  ORDER BY parent_id, sort_order ASC
+[18-04-24 04:05:15] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('5')  ORDER BY article_type DESC, article_id DESC LIMIT 6
+[18-04-24 04:05:15] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('8')  ORDER BY article_type DESC, article_id DESC LIMIT 6
+[18-04-24 04:05:15] SELECT cat_id, cat_name, parent_id FROM `baoming`.`ecs_article_cat`
+[18-04-24 04:05:15] SELECT keywords, cat_desc FROM `baoming`.`ecs_article_cat` WHERE cat_id = '5'
+[18-04-24 04:05:15] SELECT COUNT(*) FROM `baoming`.`ecs_article` WHERE cat_id IN ('5')  AND is_open = 1
+[18-04-24 04:05:15] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('5')  ORDER BY article_type DESC, article_id DESC LIMIT 10
+[18-04-24 04:05:15] SELECT id, number, type FROM `baoming`.`ecs_template` WHERE filename = 'article_cat' AND type > 0 AND remarks ='' AND theme='xiaomi'
+[18-04-24 04:05:15] SELECT SUM(goods_number) AS number, SUM(goods_price * goods_number) AS amount FROM `baoming`.`ecs_cart` WHERE session_id = 'c9749f0fb6bc06ebbfdb403d52fdd2ce' AND rec_type = '0'
+[18-04-24 04:05:15] SELECT c.rec_id,c.goods_id,c.goods_price,c.goods_number,c.goods_name,c.goods_attr,g.goods_thumb  FROM `baoming`.`ecs_cart` AS c  LEFT JOIN `baoming`.`ecs_goods` AS g ON c.goods_id = g.goods_id  WHERE session_id = 'c9749f0fb6bc06ebbfdb403d52fdd2ce' AND rec_type = '0'
+[18-04-24 04:05:15] SELECT u.user_id, u.email,u.user_rank, u.rank_points, u.user_name, u.user_money, u.pay_points FROM `baoming`.`ecs_users` AS u  WHERE u.user_id = '3703'
+[18-04-24 04:05:15] SELECT SUM(bt.type_money) AS bonus_value, COUNT(*) AS bonus_count FROM `baoming`.`ecs_user_bonus` AS ub, `baoming`.`ecs_bonus_type` AS bt WHERE ub.user_id = '3703' AND ub.bonus_type_id = bt.type_id AND ub.order_id = 0
+==========================================
+==========================================
+==========================================
+==========================================
+[18-04-24 04:05:26] SELECT code, value FROM `baoming`.`ecs_shop_config` WHERE parent_id > 0
+[18-04-24 04:05:26] SELECT c.cat_id, c.cat_name, c.measure_unit, c.parent_id, c.is_show, c.show_in_nav, c.grade, c.sort_order, COUNT(s.cat_id) AS has_children FROM `baoming`.`ecs_category` AS c LEFT JOIN `baoming`.`ecs_category` AS s ON s.parent_id=c.cat_id GROUP BY c.cat_id ORDER BY c.parent_id, c.sort_order ASC
+[18-04-24 04:05:26] SELECT cat_id, COUNT(*) AS goods_num  FROM `baoming`.`ecs_goods` WHERE is_delete = 0 AND is_on_sale = 1  GROUP BY cat_id
+[18-04-24 04:05:26] SELECT gc.cat_id, COUNT(*) AS goods_num  FROM `baoming`.`ecs_goods_cat` AS gc , `baoming`.`ecs_goods` AS g  WHERE g.goods_id = gc.goods_id AND g.is_delete = 0 AND g.is_on_sale = 1  GROUP BY gc.cat_id
+[18-04-24 04:05:26] SELECT * FROM `baoming`.`ecs_nav`
+            WHERE ifshow = '1' ORDER BY type, vieworder
+[18-04-24 04:05:26] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '83'
+[18-04-24 04:05:26] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '83' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:26] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='83' ORDER BY sort_order  
+[18-04-24 04:05:26] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '81'
+[18-04-24 04:05:26] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '81' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:26] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='81' ORDER BY sort_order  
+[18-04-24 04:05:26] SELECT parent_id FROM `baoming`.`ecs_category` WHERE cat_id = '87'
+[18-04-24 04:05:26] SELECT cat_id,cat_name ,parent_id,is_show FROM `baoming`.`ecs_category`WHERE parent_id = '87' AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[18-04-24 04:05:26] SELECT cat_id,cat_name FROM `baoming`.`ecs_category` WHERE parent_id ='87' ORDER BY sort_order  
+[18-04-24 04:05:26] SELECT c.*, COUNT(s.cat_id) AS has_children, COUNT(a.article_id) AS aricle_num  FROM `baoming`.`ecs_article_cat` AS c LEFT JOIN `baoming`.`ecs_article_cat` AS s ON s.parent_id=c.cat_id LEFT JOIN `baoming`.`ecs_article` AS a ON a.cat_id=c.cat_id GROUP BY c.cat_id  ORDER BY parent_id, sort_order ASC
+[18-04-24 04:05:26] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('5')  ORDER BY article_type DESC, article_id DESC LIMIT 6
+[18-04-24 04:05:26] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('8')  ORDER BY article_type DESC, article_id DESC LIMIT 6
+[18-04-24 04:05:26] SELECT cat_id, cat_name, parent_id FROM `baoming`.`ecs_article_cat`
+[18-04-24 04:05:26] SELECT keywords, cat_desc FROM `baoming`.`ecs_article_cat` WHERE cat_id = '5'
+[18-04-24 04:05:26] SELECT COUNT(*) FROM `baoming`.`ecs_article` WHERE cat_id IN ('5')  AND is_open = 1
+[18-04-24 04:05:26] SELECT article_id, title, author, add_time, file_url, open_type FROM `baoming`.`ecs_article` WHERE is_open = 1 AND cat_id IN ('5')  ORDER BY article_type DESC, article_id DESC LIMIT 10
+[18-04-24 04:05:26] SELECT id, number, type FROM `baoming`.`ecs_template` WHERE filename = 'article_cat' AND type > 0 AND remarks ='' AND theme='xiaomi'
+[18-04-24 04:05:26] SELECT SUM(goods_number) AS number, SUM(goods_price * goods_number) AS amount FROM `baoming`.`ecs_cart` WHERE session_id = 'c9749f0fb6bc06ebbfdb403d52fdd2ce' AND rec_type = '0'
+[18-04-24 04:05:26] SELECT c.rec_id,c.goods_id,c.goods_price,c.goods_number,c.goods_name,c.goods_attr,g.goods_thumb  FROM `baoming`.`ecs_cart` AS c  LEFT JOIN `baoming`.`ecs_goods` AS g ON c.goods_id = g.goods_id  WHERE session_id = 'c9749f0fb6bc06ebbfdb403d52fdd2ce' AND rec_type = '0'
+[18-04-24 04:05:26] SELECT u.user_id, u.email,u.user_rank, u.rank_points, u.user_name, u.user_money, u.pay_points FROM `baoming`.`ecs_users` AS u  WHERE u.user_id = '3703'
+[18-04-24 04:05:26] SELECT SUM(bt.type_money) AS bonus_value, COUNT(*) AS bonus_count FROM `baoming`.`ecs_user_bonus` AS ub, `baoming`.`ecs_bonus_type` AS bt WHERE ub.user_id = '3703' AND ub.bonus_type_id = bt.type_id AND ub.order_id = 0
+[18-04-24 06:40:06] SELECT code, value FROM `baoming`.`ecs_shop_config` WHERE parent_id > 0
+[18-04-24 06:43:07] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE add_time >= '1524552006'
+[18-04-24 06:43:07] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE pay_time >= 1524552006
+[18-04-24 06:46:06] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE add_time >= '1524552187'
+[18-04-24 06:46:06] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE pay_time >= 1524552187
+[18-04-24 06:49:06] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE add_time >= '1524552366'
+[18-04-24 06:49:06] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE pay_time >= 1524552366
+[18-04-24 06:52:06] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE add_time >= '1524552546'
+[18-04-24 06:52:06] SELECT COUNT(*) FROM `baoming`.`ecs_order_info` WHERE pay_time >= 1524552546

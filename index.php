@@ -114,9 +114,9 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
 {
     assign_template();
 
-    $position = assign_ur_here();
-    $smarty->assign('page_title',      $position['title']);    // 页面标题
-    $smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
+//    $position = assign_ur_here();
+//    $smarty->assign('page_title',      $position['title']);    // 页面标题
+//    $smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
 
 
 
@@ -127,7 +127,8 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
 
     $smarty->assign('feed_url',        ($_CFG['rewrite'] == 1) ? 'feed.xml' : 'feed.php'); // RSS URL
 
-    $smarty->assign('categories',      get_categories_tree()); // 分类树
+//    $smarty->assign('categories',      get_categories_tree()); // 分类树
+
 
 //    $smarty->assign('helps',           get_shop_help());       // 网店帮助
 //    $smarty->assign('top_goods',       get_top10());           // 销售排行
@@ -201,7 +202,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
 //    }
 
     /* 页面中的动态内容 */
-    assign_dynamic('index');
+//    assign_dynamic('index');
 }
 
 $smarty->display('index.dwt', $cache_id);
@@ -372,8 +373,6 @@ function index_get_auction()
     return $list;
 }
 
-
-
 function get_comments($num)
 {
    $sql = 'SELECT a.*,b.goods_id,b.goods_thumb,b.goods_name,b.market_price,b.shop_price,b.promote_price FROM '. $GLOBALS['ecs']->table('comment') .
@@ -403,4 +402,3 @@ function get_comments($num)
   }
   return $comments;
 }
-?>

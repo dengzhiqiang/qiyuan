@@ -207,7 +207,9 @@ elseif ($_REQUEST['act'] == 'view')
             $smarty->assign('specification',       $properties['spe']);                              // 商品规格
 
             $smarty->assign('pictures',            get_goods_gallery($goods_id));                    // 商品相册
-			$smarty->assign('comment_percent',     comment_percent($goods_id));                      // 商品评价
+
+            // 下面这个是获取商品的评分
+//			$smarty->assign('comment_percent',     comment_percent($goods_id));                      // 商品评价
 			
 
             assign_dynamic('exchange_goods');
